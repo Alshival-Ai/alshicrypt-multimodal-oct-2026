@@ -43,3 +43,25 @@ Text-to-image and image-to-audio are future experiments. Our next step is to tes
 *Samuel Cavazos · Chief Data Scientist, [Alshival.Ai](https://alshival.ai)*
 
 *Dataset: [Pokemon sprite images, shared by yehongjiang on Kaggle](https://www.kaggle.com/datasets/yehongjiang/pokemon-sprites-images).*
+
+Here are 25 examples from the test group, all excluded from training. Each row shows the original image, a preview of the transformed output, and the recovered image. Every original color and transparency byte was recovered after rounding. Recovery uses the full saved numerical values and recorded noise, rather than the displayed preview. These are the first 25 test images in the recorded order, without selection for appearance or recovery quality.
+
+![Image #4: Test examples 1–5, showing original, transformed preview, and recovered Pokémon.](image-04-test-examples-01-05.png)
+
+*Image #4 · Test examples 1–5: Amoonguss, Arbok, Aron, Articuno, and Axew.*
+
+![Image #5: Test examples 6–10, showing original, transformed preview, and recovered Pokémon.](image-05-test-examples-06-10.png)
+
+*Image #5 · Test examples 6–10.*
+
+![Image #6: Test examples 11–15, showing original, transformed preview, and recovered Pokémon.](image-06-test-examples-11-15.png)
+
+*Image #6 · Test examples 11–15.*
+
+![Image #7: Test examples 16–20, showing original, transformed preview, and recovered Pokémon.](image-07-test-examples-16-20.png)
+
+*Image #7 · Test examples 16–20.*
+
+![Image #8: Test examples 21–25, showing original, transformed preview, and recovered Pokémon.](image-08-test-examples-21-25.png)
+
+*Image #8 · Test examples 21–25.*
