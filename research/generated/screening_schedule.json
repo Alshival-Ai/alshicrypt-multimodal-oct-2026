@@ -1,0 +1,16 @@
+{
+  "steps": 1000,
+  "max_steps": 1000,
+  "seconds_budget": 1800,
+  "profile_steps": 100,
+  "environment": {
+    "torch": "2.10.0+cu128",
+    "cuda": "12.8",
+    "python": "3.12.14",
+    "gpu": "NVIDIA GeForce RTX 5070",
+    "source_sha256": "fb005ea07db248ce1620bd19be1538f2dbfd41115dcc17e40ff160c7250ea1aa",
+    "deterministic_cudnn": true,
+    "tf32": false
+  },
+  "split_sha256": "41decc11f8f7f0f717a009ca204215c5c1c07c38008ef28e4adac954cb86fc36"
+}

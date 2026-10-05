@@ -1,0 +1,12 @@
+{
+  "track": "gaussian",
+  "family": "coupling",
+  "regime": "mixed",
+  "seed": 17,
+  "steps": 1000,
+  "noise_mode": "fresh",
+  "microbatch": 4,
+  "batch_size": 16,
+  "width": 32,
+  "lr": 0.0003
+}

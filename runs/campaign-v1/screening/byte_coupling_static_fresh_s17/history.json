@@ -1,0 +1,1492 @@
+[
+  {
+    "step": 100,
+    "epoch": 1.0,
+    "forward_loss": 0.7874566316604614,
+    "reverse_loss": 0.787616491317749,
+    "validation": {
+      "pokemon": {
+        "forward": {
+          "mae": 0.22806022805212617,
+          "mse": 0.08288995831441322,
+          "max_error": 1.0,
+          "byte_accuracy": 0.0055709876543209875,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.27594592460384704,
+          "rgb_mae": 0.22601433380851196,
+          "psnr": 10.814980787716541
+        },
+        "reverse": {
+          "mae": 0.4711817062387369,
+          "mse": 0.3275150849737808,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005552340534979424,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.28381312393717706,
+          "rgb_mae": 0.46352151416122,
+          "psnr": 4.847686920996878
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 81,
+        "payload_bytes_per_image": 52873.17283950617,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.001218726844124404
+      },
+      "static": {
+        "forward": {
+          "mae": 0.28971761174087685,
+          "mse": 0.1454072338046398,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005461697048611111,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.28987493906131584,
+          "rgb_mae": 0.2898519341185548,
+          "psnr": 8.374139874020717
+        },
+        "reverse": {
+          "mae": 0.28997234136710237,
+          "mse": 0.14565177158758383,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005585394965277778,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2900400412863797,
+          "rgb_mae": 0.29001869439905587,
+          "psnr": 8.366842286056052
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 32,
+        "payload_bytes_per_image": 57793.0,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0011138285044580698
+      },
+      "probes": {
+        "forward": {
+          "mae": 0.22588708847736624,
+          "mse": 0.08080671767980976,
+          "max_error": 1.0,
+          "byte_accuracy": 0.0054880401234567895,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.20218230167884146,
+          "rgb_mae": 0.22424527959331877,
+          "psnr": 10.925525336560893
+        },
+        "reverse": {
+          "mae": 0.4098453007746309,
+          "mse": 0.26582248630631145,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005470679012345679,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.323858098940375,
+          "rgb_mae": 0.4101978334543694,
+          "psnr": 5.754082842447112
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 9,
+        "payload_bytes_per_image": 51871.444444444445,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0016937594369260801
+      }
+    }
+  },
+  {
+    "step": 200,
+    "epoch": 2.0,
+    "forward_loss": 0.7850328087806702,
+    "reverse_loss": 0.7850781679153442,
+    "validation": {
+      "pokemon": {
+        "forward": {
+          "mae": 0.22127001718039754,
+          "mse": 0.07649234000890763,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005530264060356653,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2757163975647554,
+          "rgb_mae": 0.22149266499009296,
+          "psnr": 11.163820531918176
+        },
+        "reverse": {
+          "mae": 0.4722721966701633,
+          "mse": 0.3286030001782579,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005501971879286695,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2834185018538604,
+          "rgb_mae": 0.46504643190152145,
+          "psnr": 4.833284757307988
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 81,
+        "payload_bytes_per_image": 52612.7037037037,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0014501479253126884
+      },
+      "static": {
+        "forward": {
+          "mae": 0.28965906692538124,
+          "mse": 0.1453400454118875,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005597330729166667,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.28983681767732644,
+          "rgb_mae": 0.2898108546659404,
+          "psnr": 8.376147084462604
+        },
+        "reverse": {
+          "mae": 0.28994751880787034,
+          "mse": 0.1456237387913703,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005444878472222223,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.28998135886877685,
+          "rgb_mae": 0.28996219986837324,
+          "psnr": 8.367678229230924
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 32,
+        "payload_bytes_per_image": 57793.0,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.001598626568011241
+      },
+      "probes": {
+        "forward": {
+          "mae": 0.2213806357419511,
+          "mse": 0.07651159783630228,
+          "max_error": 1.0,
+          "byte_accuracy": 0.00550733024691358,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.200037313436631,
+          "rgb_mae": 0.22062818728314368,
+          "psnr": 11.162727283164857
+        },
+        "reverse": {
+          "mae": 0.4098718681917211,
+          "mse": 0.26585010934778164,
+          "max_error": 1.0,
+          "byte_accuracy": 0.0055246913580246915,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.32413148933017893,
+          "rgb_mae": 0.41024298999435166,
+          "psnr": 5.753631567185128
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 9,
+        "payload_bytes_per_image": 51629.555555555555,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0015422313396508496
+      }
+    }
+  },
+  {
+    "step": 300,
+    "epoch": 3.0,
+    "forward_loss": 0.7843553423881531,
+    "reverse_loss": 0.7843724489212036,
+    "validation": {
+      "pokemon": {
+        "forward": {
+          "mae": 0.21919171440867152,
+          "mse": 0.07456396120728073,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005558556241426611,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.27533117325462075,
+          "rgb_mae": 0.22041312075813405,
+          "psnr": 11.27471028165252
+        },
+        "reverse": {
+          "mae": 0.47097856821054895,
+          "mse": 0.3273317101842754,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005483110425240055,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2838249843457612,
+          "rgb_mae": 0.46334404390471323,
+          "psnr": 4.850119204757685
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 81,
+        "payload_bytes_per_image": 52448.50617283951,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0011342027537915625
+      },
+      "static": {
+        "forward": {
+          "mae": 0.2896959869451253,
+          "mse": 0.14539407096529378,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005469835069444444,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2898755706901697,
+          "rgb_mae": 0.28984662649782134,
+          "psnr": 8.374533032400977
+        },
+        "reverse": {
+          "mae": 0.2899528760723039,
+          "mse": 0.14565042327303335,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005462239583333334,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.28997845229835284,
+          "rgb_mae": 0.2899603332652505,
+          "psnr": 8.36688248936241
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 32,
+        "payload_bytes_per_image": 57793.0,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0010956534970318899
+      },
+      "probes": {
+        "forward": {
+          "mae": 0.2203996913580247,
+          "mse": 0.07559114680488511,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005549768518518519,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.1982539354521765,
+          "rgb_mae": 0.21989409343984503,
+          "psnr": 11.215290658603383
+        },
+        "reverse": {
+          "mae": 0.40973114106753816,
+          "mse": 0.2657358164416819,
+          "max_error": 1.0,
+          "byte_accuracy": 0.00552854938271605,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.32386449435741377,
+          "rgb_mae": 0.410016007020092,
+          "psnr": 5.755499065055051
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 9,
+        "payload_bytes_per_image": 51506.444444444445,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0012338046476037966
+      }
+    }
+  },
+  {
+    "step": 400,
+    "epoch": 4.0,
+    "forward_loss": 0.7834588885307312,
+    "reverse_loss": 0.7835018634796143,
+    "validation": {
+      "pokemon": {
+        "forward": {
+          "mae": 0.2183062128486511,
+          "mse": 0.07374960569665882,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005579561042524006,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2751593662813408,
+          "rgb_mae": 0.21973426643176702,
+          "psnr": 11.322402973053663
+        },
+        "reverse": {
+          "mae": 0.47100091533526994,
+          "mse": 0.327360384047578,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005490826474622771,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.283908373916893,
+          "rgb_mae": 0.463620754771959,
+          "psnr": 4.849738784687706
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 81,
+        "payload_bytes_per_image": 52380.30864197531,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0014139703449068798
+      },
+      "static": {
+        "forward": {
+          "mae": 0.2896760769846133,
+          "mse": 0.14537925020992193,
+          "max_error": 1.0,
+          "byte_accuracy": 0.00544921875,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2898265378685584,
+          "rgb_mae": 0.2897950622957516,
+          "psnr": 8.37497575336693
+        },
+        "reverse": {
+          "mae": 0.28995693338099127,
+          "mse": 0.14565724732941923,
+          "max_error": 1.0,
+          "byte_accuracy": 0.0054633246527777775,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2899580377165815,
+          "rgb_mae": 0.2899384928740014,
+          "psnr": 8.366679017203438
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 32,
+        "payload_bytes_per_image": 57793.0,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0011766516618081369
+      },
+      "probes": {
+        "forward": {
+          "mae": 0.22006428528201402,
+          "mse": 0.07528531500230205,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005366512345679012,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.1981032510559295,
+          "rgb_mae": 0.21953816670701198,
+          "psnr": 11.232897281210601
+        },
+        "reverse": {
+          "mae": 0.40962055948922776,
+          "mse": 0.2656298878102439,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005702160493827161,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.3236908335350602,
+          "rgb_mae": 0.40995836359235055,
+          "psnr": 5.757230611534261
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 9,
+        "payload_bytes_per_image": 51465.666666666664,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0016178137803864148
+      }
+    }
+  },
+  {
+    "step": 500,
+    "epoch": 5.0,
+    "forward_loss": 0.7836286425590515,
+    "reverse_loss": 0.7836243510246277,
+    "validation": {
+      "pokemon": {
+        "forward": {
+          "mae": 0.21777297415879934,
+          "mse": 0.07325432894135894,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005570773319615912,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2749674423408408,
+          "rgb_mae": 0.21965962191918376,
+          "psnr": 11.351667057206988
+        },
+        "reverse": {
+          "mae": 0.4718025086406304,
+          "mse": 0.32818281786537196,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005454389574759945,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.28361853752528426,
+          "rgb_mae": 0.4641288574643392,
+          "psnr": 4.8388416033835995
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 81,
+        "payload_bytes_per_image": 52350.83950617284,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0012444468376077251
+      },
+      "static": {
+        "forward": {
+          "mae": 0.2896547798372821,
+          "mse": 0.1453798284130169,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005551215277777777,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2898528333881203,
+          "rgb_mae": 0.2898199777596223,
+          "psnr": 8.374958480619007
+        },
+        "reverse": {
+          "mae": 0.2899157326559096,
+          "mse": 0.14564008433421707,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005602213541666666,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.28991393332762083,
+          "rgb_mae": 0.289897251724764,
+          "psnr": 8.367190782558465
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 32,
+        "payload_bytes_per_image": 57793.0,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0011245104906265624
+      },
+      "probes": {
+        "forward": {
+          "mae": 0.21971437757201642,
+          "mse": 0.07495368035679534,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005597993827160493,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.19788892914948597,
+          "rgb_mae": 0.21946229726458483,
+          "psnr": 11.252070376735281
+        },
+        "reverse": {
+          "mae": 0.4099245718349068,
+          "mse": 0.2659414098506747,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005476466049382716,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.32392921525908835,
+          "rgb_mae": 0.4102667332365045,
+          "psnr": 5.752140332234604
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 9,
+        "payload_bytes_per_image": 51427.666666666664,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0014175591964481606
+      }
+    }
+  },
+  {
+    "step": 600,
+    "epoch": 6.0,
+    "forward_loss": 0.7830749154090881,
+    "reverse_loss": 0.7831149101257324,
+    "validation": {
+      "pokemon": {
+        "forward": {
+          "mae": 0.21742356067941576,
+          "mse": 0.0729336392328792,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005492541152263375,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2749608183949748,
+          "rgb_mae": 0.21932255103687565,
+          "psnr": 11.37072115528934
+        },
+        "reverse": {
+          "mae": 0.4720171375305952,
+          "mse": 0.3284101765920198,
+          "max_error": 1.0,
+          "byte_accuracy": 0.0054983281893004115,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.28375539253815113,
+          "rgb_mae": 0.4645020856307773,
+          "psnr": 4.835833936680614
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 81,
+        "payload_bytes_per_image": 52318.0,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.001264294475765416
+      },
+      "static": {
+        "forward": {
+          "mae": 0.28961814065904135,
+          "mse": 0.14535843567444678,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005558810763888889,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2897810506526125,
+          "rgb_mae": 0.2897513956971677,
+          "psnr": 8.375597594865612
+        },
+        "reverse": {
+          "mae": 0.28987535105187906,
+          "mse": 0.14561293343539078,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005533854166666666,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2898709490132229,
+          "rgb_mae": 0.2898516873184459,
+          "psnr": 8.368000489916241
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 32,
+        "payload_bytes_per_image": 57793.0,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0012283420001040213
+      },
+      "probes": {
+        "forward": {
+          "mae": 0.2194860808520939,
+          "mse": 0.0747565149443946,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005418595679012346,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.19793127795780624,
+          "rgb_mae": 0.2192376845800048,
+          "psnr": 11.263509530890548
+        },
+        "reverse": {
+          "mae": 0.4100065889009925,
+          "mse": 0.2660360589884707,
+          "max_error": 1.0,
+          "byte_accuracy": 0.00560570987654321,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.3240702816105866,
+          "rgb_mae": 0.41038075929960455,
+          "psnr": 5.750594943525375
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 9,
+        "payload_bytes_per_image": 51386.22222222222,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0015532097830954525
+      }
+    }
+  },
+  {
+    "step": 700,
+    "epoch": 7.0,
+    "forward_loss": 0.7827054858207703,
+    "reverse_loss": 0.7827086448669434,
+    "validation": {
+      "pokemon": {
+        "forward": {
+          "mae": 0.21730562700045722,
+          "mse": 0.07282196475358481,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005492112482853223,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.27475260283841935,
+          "rgb_mae": 0.21923135932470836,
+          "psnr": 11.37737607877642
+        },
+        "reverse": {
+          "mae": 0.47238563436348474,
+          "mse": 0.3287937829454114,
+          "max_error": 1.0,
+          "byte_accuracy": 0.0054809670781893,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.28343520127321115,
+          "rgb_mae": 0.4649508178900274,
+          "psnr": 4.8307640298730465
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 81,
+        "payload_bytes_per_image": 52317.444444444445,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0011858453738422673
+      },
+      "static": {
+        "forward": {
+          "mae": 0.2895983604813453,
+          "mse": 0.14535152718205338,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005559353298611111,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2897754739000692,
+          "rgb_mae": 0.28974361723856207,
+          "psnr": 8.375804008164682
+        },
+        "reverse": {
+          "mae": 0.2898232166564542,
+          "mse": 0.14557282030782764,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005516493055555556,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2897886608926403,
+          "rgb_mae": 0.2897688646060276,
+          "psnr": 8.36919703953028
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 32,
+        "payload_bytes_per_image": 57793.0,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.001122578341892222
+      },
+      "probes": {
+        "forward": {
+          "mae": 0.21941202190752843,
+          "mse": 0.07468479680179987,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005540123456790123,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.19802415847723742,
+          "rgb_mae": 0.21918639554587266,
+          "psnr": 11.267677962712842
+        },
+        "reverse": {
+          "mae": 0.4100350702009199,
+          "mse": 0.2660738963171809,
+          "max_error": 1.0,
+          "byte_accuracy": 0.0055208333333333325,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.3242988592435279,
+          "rgb_mae": 0.4103799826514968,
+          "psnr": 5.749977306402345
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 9,
+        "payload_bytes_per_image": 51380.88888888889,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0013697039879237611
+      }
+    }
+  },
+  {
+    "step": 800,
+    "epoch": 8.0,
+    "forward_loss": 0.7845961451530457,
+    "reverse_loss": 0.7846091985702515,
+    "validation": {
+      "pokemon": {
+        "forward": {
+          "mae": 0.21703906775330162,
+          "mse": 0.07257000656996437,
+          "max_error": 1.0,
+          "byte_accuracy": 0.0055079732510288065,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2747832155008632,
+          "rgb_mae": 0.21904688354537058,
+          "psnr": 11.392428376005697
+        },
+        "reverse": {
+          "mae": 0.4723315177923021,
+          "mse": 0.32874663935048726,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005550625857338821,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2835988662672298,
+          "rgb_mae": 0.4646617960856039,
+          "psnr": 4.831386781037035
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 81,
+        "payload_bytes_per_image": 52285.432098765436,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0014156024115459052
+      },
+      "static": {
+        "forward": {
+          "mae": 0.28954680904479846,
+          "mse": 0.14530642699022012,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005598415798611111,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.28973212232145124,
+          "rgb_mae": 0.2897014541348947,
+          "psnr": 8.377151761723256
+        },
+        "reverse": {
+          "mae": 0.289828693065768,
+          "mse": 0.14558750075925658,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005467664930555555,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.28981758626097864,
+          "rgb_mae": 0.28980222517247634,
+          "psnr": 8.368759092558008
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 32,
+        "payload_bytes_per_image": 57793.0,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.001341826489806408
+      },
+      "probes": {
+        "forward": {
+          "mae": 0.21917589566690873,
+          "mse": 0.07446926306833553,
+          "max_error": 1.0,
+          "byte_accuracy": 0.0055015432098765435,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.1979173309241392,
+          "rgb_mae": 0.2190095114177358,
+          "psnr": 11.280229438192997
+        },
+        "reverse": {
+          "mae": 0.4101799730694747,
+          "mse": 0.2662233802822751,
+          "max_error": 1.0,
+          "byte_accuracy": 0.0053915895061728385,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.3240801485929642,
+          "rgb_mae": 0.41050370168643585,
+          "psnr": 5.74753806555953
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 9,
+        "payload_bytes_per_image": 51324.11111111111,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0014862911387657125
+      }
+    }
+  },
+  {
+    "step": 900,
+    "epoch": 9.0,
+    "forward_loss": 0.7843742370605469,
+    "reverse_loss": 0.7843618988990784,
+    "validation": {
+      "pokemon": {
+        "forward": {
+          "mae": 0.2170318946851717,
+          "mse": 0.072552556306823,
+          "max_error": 1.0,
+          "byte_accuracy": 0.00548568244170096,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.27469264085683925,
+          "rgb_mae": 0.2189834483175986,
+          "psnr": 11.393472810844273
+        },
+        "reverse": {
+          "mae": 0.4724403535934264,
+          "mse": 0.3288566652077733,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005507115912208504,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2834587819358012,
+          "rgb_mae": 0.4649252613482521,
+          "psnr": 4.82993351513035
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 81,
+        "payload_bytes_per_image": 52301.432098765436,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.001125006210691307
+      },
+      "static": {
+        "forward": {
+          "mae": 0.2895626765897331,
+          "mse": 0.14532508676383815,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005602756076388889,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.289752469459931,
+          "rgb_mae": 0.2897212889206608,
+          "psnr": 8.376594090834622
+        },
+        "reverse": {
+          "mae": 0.28980605128336057,
+          "mse": 0.14556744487129683,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005477430555555556,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.28980527689065383,
+          "rgb_mae": 0.2897909971859114,
+          "psnr": 8.369357410506241
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 32,
+        "payload_bytes_per_image": 57793.0,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0010358104300394189
+      },
+      "probes": {
+        "forward": {
+          "mae": 0.21912273813846525,
+          "mse": 0.07441582543632315,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005324074074074074,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.19785979276726426,
+          "rgb_mae": 0.21893618373275234,
+          "psnr": 11.283346965937191
+        },
+        "reverse": {
+          "mae": 0.4100921387073348,
+          "mse": 0.26613505418144023,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005368441358024691,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.3242147665529538,
+          "rgb_mae": 0.41051537158073104,
+          "psnr": 5.748979182523939
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 9,
+        "payload_bytes_per_image": 51326.666666666664,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.001448107766918838
+      }
+    }
+  },
+  {
+    "step": 1000,
+    "epoch": 10.0,
+    "forward_loss": 0.7837777137756348,
+    "reverse_loss": 0.7837979793548584,
+    "validation": {
+      "pokemon": {
+        "forward": {
+          "mae": 0.21695610341187227,
+          "mse": 0.07247395018680163,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005512688614540466,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.274600717448823,
+          "rgb_mae": 0.21898896442436142,
+          "psnr": 11.398180668509397
+        },
+        "reverse": {
+          "mae": 0.47266904788321357,
+          "mse": 0.3290889227638257,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005493398491083676,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.28339286908180084,
+          "rgb_mae": 0.4651457498408598,
+          "psnr": 4.826867359478342
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 81,
+        "payload_bytes_per_image": 52307.246913580246,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0011504479629321047
+      },
+      "static": {
+        "forward": {
+          "mae": 0.2895699125136165,
+          "mse": 0.145337323168306,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005522460937499999,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.28977764475897655,
+          "rgb_mae": 0.28974439168028315,
+          "psnr": 8.376228429313883
+        },
+        "reverse": {
+          "mae": 0.2897899560866013,
+          "mse": 0.1455578128170522,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005572916666666667,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.2897769954135715,
+          "rgb_mae": 0.28975964222494555,
+          "psnr": 8.369644788389051
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 32,
+        "payload_bytes_per_image": 57793.0,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0011871570568473544
+      },
+      "probes": {
+        "forward": {
+          "mae": 0.21908601125635438,
+          "mse": 0.07438487956911159,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005374228395061729,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.19784263081897005,
+          "rgb_mae": 0.218927721294279,
+          "psnr": 11.285153357857304
+        },
+        "reverse": {
+          "mae": 0.4101927801984992,
+          "mse": 0.2662356049548844,
+          "max_error": 1.0,
+          "byte_accuracy": 0.005412808641975309,
+          "exact_image_rate": 0.0,
+          "foreground_rgb_mae": 0.3243316167062323,
+          "rgb_mae": 0.41061542806422985,
+          "psnr": 5.747338647087669
+        },
+        "roundtrip": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "analytic": {
+          "mae": 0.0,
+          "mse": 0.0,
+          "max_error": 0.0,
+          "byte_accuracy": 1.0,
+          "exact_image_rate": 1.0,
+          "foreground_rgb_mae": 0.0,
+          "rgb_mae": 0.0,
+          "psnr": null
+        },
+        "count": 9,
+        "payload_bytes_per_image": 51325.88888888889,
+        "noise_field_bytes_per_image": 57600,
+        "seed_bytes_alternative": 8,
+        "neural_seconds_per_image_three_calls": 0.0015258214358861248
+      }
+    }
+  }
+]

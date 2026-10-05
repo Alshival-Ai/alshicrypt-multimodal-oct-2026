@@ -1,0 +1,23 @@
+{
+  "split": "val",
+  "images": [
+    "absol",
+    "accelgor",
+    "bayleef",
+    "blitzle",
+    "braviary",
+    "brionne",
+    "bunnelby",
+    "carracosta"
+  ],
+  "encode_batch": 4,
+  "decode_batch": 1,
+  "mismatched_pixel_bytes": 0,
+  "matched_batch_mismatches": 0,
+  "pixel_bytes": 460800,
+  "torch": "2.10.0+cu128",
+  "gpu": "NVIDIA GeForce RTX 5070",
+  "checkpoint": "extended/byte_guided_pokemon_fresh_s17/best.pt",
+  "checkpoint_sha256": "bff252774e4eee07d7b50a4f6777d922695d584fe5e15595d5642d4512dab74d",
+  "noise_seed": 719
+}

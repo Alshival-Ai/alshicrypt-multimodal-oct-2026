@@ -1,0 +1,34 @@
+{
+  "source": "/home/samuel/alshicrypt-experimental/deprecated/alshicrypt-multimodal/pokemon/images/mew.png",
+  "source_sha256": "eabeb90dabcd31fa030f98e82ef2b3a332e4ed4add8aa02766a7490862c4a521",
+  "purpose": "conceptual channel-partition and inversion diagram; no model predictions",
+  "channel_groups": [
+    [
+      "red",
+      "green"
+    ],
+    [
+      "blue",
+      "alpha"
+    ]
+  ],
+  "channel_display": "individual original channels in grayscale, fixed range [0, 255]",
+  "scale": 0.5,
+  "scalar_example": {
+    "v": 0.8,
+    "shift": 0.3,
+    "v_prime": 0.7
+  },
+  "forward_block_order": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "reverse_block_order": [
+    4,
+    3,
+    2,
+    1
+  ]
+}

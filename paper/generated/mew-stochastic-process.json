@@ -1,0 +1,46 @@
+{
+  "source": "/home/samuel/alshicrypt-experimental/deprecated/alshicrypt-multimodal/pokemon/images/mew.png",
+  "source_sha256": "eabeb90dabcd31fa030f98e82ef2b3a332e4ed4add8aa02766a7490862c4a521",
+  "image": "mew",
+  "purpose": "theory illustration, not a reconstruction evaluation",
+  "dataset_split": "train",
+  "seed": 6959132232207510960,
+  "generator": "CPU torch.Generator; torch.randn float64",
+  "beta": 0.08299595679532878,
+  "channels": "RGBA",
+  "tensor_layout": "CHW",
+  "trajectory": "one shared path of 32 independent Gaussian increments; no intermediate clipping",
+  "display": "Original RGBA on checkerboard; later panels opaque clipped RGB previews",
+  "snapshots": [
+    {
+      "step": 0,
+      "signal_coefficient": 1.0,
+      "noise_variance": 0.0
+    },
+    {
+      "step": 1,
+      "signal_coefficient": 0.9576032806985736,
+      "noise_variance": 0.0829959567953289
+    },
+    {
+      "step": 2,
+      "signal_coefficient": 0.9170040432046712,
+      "noise_variance": 0.1591035847462855
+    },
+    {
+      "step": 5,
+      "signal_coefficient": 0.8052451659746271,
+      "noise_variance": 0.3515802226744952
+    },
+    {
+      "step": 16,
+      "signal_coefficient": 0.49999999999999994,
+      "noise_variance": 0.75
+    },
+    {
+      "step": 32,
+      "signal_coefficient": 0.24999999999999992,
+      "noise_variance": 0.9375
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+\subsection{Selection and transfer}
+
+Validation selected the coupling architecture with pokemon training for the gaussian track as the main approach. This selection was frozen before test evaluation. Both transformation tracks and all training regimes remain reported.
+
+For byte, the mean held-out forward-plus-reverse MAE was 0.34467 with sprite training, 0.44486 with static training, and 0.36029 with mixed training. These descriptive differences concern target learning; exact self-inversion alone is not evidence of transfer.
+
+Byte forward-target accuracy (mean and sample standard deviation across training seeds) was pokemon: $20.88\pm0.70$\%; static: $10.59\pm0.96$\%; mixed: $19.23\pm1.01$\%. These percentages measure agreement with the prescribed teacher, not self-round-trip recovery.
+
+For gaussian, the mean held-out forward-plus-reverse MAE was 0.049237 with sprite training, 0.12187 with static training, and 0.051555 with mixed training. These descriptive differences concern target learning; exact self-inversion alone is not evidence of transfer.
+
+The largest Gaussian learned-round-trip error across retained test runs and domains was 1.8477e-06. This is comfortably below half an 8-bit step ($1/510$), including input float-rounding error, so rounding reconstructed values to the nearest original byte recovers the input byte grid. This is a numerical recovery property, not evidence of target learning.
+
+\subsection{Costs and diagnostics}
+
+Extended runs used 2000--2000 updates (20--20 defined epochs), with an effective batch size of 16. The retained coupling networks have 44,296 parameters; the independent byte and Gaussian pairs have 294,208 and 226,888 parameters respectively.
+
+The original process yielded 1 unique RGB arrays among 81 validation images, while preserving alpha exactly. Silhouette-only nearest-training-mask retrieval achieved normalized RGB MAE 0.074125. Clipping and quantizing the gentler Gaussian endpoint to PNG produced analytic recovery MAE 0.77363; this illustrates why Gaussian results require an unclipped float payload.
+
+\subsection{Noise realization transfer}
+
+For byte, the fresh-noise-trained mixed model had validation target MAE sum 0.37334 on fresh fields and 0.3723 on the fixed field. The fixed-noise-trained counterpart had errors 0.36328 on fresh fields and 0.35988 on the fixed field. This single-seed diagnostic crosses training and evaluation noise conditions; it is excluded from architecture selection.
+
+For gaussian, the fresh-noise-trained mixed model had validation target MAE sum 0.051844 on fresh fields and 0.051489 on the fixed field. The fixed-noise-trained counterpart had errors 0.059442 on fresh fields and 0.053802 on the fixed field. This single-seed diagnostic crosses training and evaluation noise conditions; it is excluded from architecture selection.

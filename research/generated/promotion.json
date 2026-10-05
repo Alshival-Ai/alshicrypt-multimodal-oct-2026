@@ -1,0 +1,8 @@
+{
+  "families": {
+    "byte": "guided",
+    "gaussian": "coupling"
+  },
+  "screening_steps": 1000,
+  "selection": "mean validation score across all three training regimes"
+}

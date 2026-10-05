@@ -1,0 +1,37 @@
+{
+  "byte_pair": {
+    "seconds_per_step": 0.13488740641041658,
+    "steps": 100,
+    "peak_allocated_bytes": 1109341184,
+    "parameters": 294208,
+    "microbatch": 4
+  },
+  "byte_coupling": {
+    "seconds_per_step": 0.07455843649921007,
+    "steps": 100,
+    "peak_allocated_bytes": 398470656,
+    "parameters": 44296,
+    "microbatch": 4
+  },
+  "gaussian_pair": {
+    "seconds_per_step": 0.0928655651898589,
+    "steps": 100,
+    "peak_allocated_bytes": 299422720,
+    "parameters": 226888,
+    "microbatch": 4
+  },
+  "gaussian_coupling": {
+    "seconds_per_step": 0.07293854744057171,
+    "steps": 100,
+    "peak_allocated_bytes": 400773632,
+    "parameters": 44296,
+    "microbatch": 4
+  },
+  "byte_guided": {
+    "seconds_per_step": 0.10342293530935422,
+    "steps": 100,
+    "peak_allocated_bytes": 525427200,
+    "parameters": 44296,
+    "microbatch": 4
+  }
+}

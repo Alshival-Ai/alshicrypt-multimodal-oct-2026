@@ -1,0 +1,64 @@
+{
+  "created_utc": "2026-10-04T22:35:46.284302+00:00",
+  "protocol": {
+    "version": 1,
+    "configs": [
+      {
+        "seed": 17,
+        "updates": 2000,
+        "schedule": {
+          "steps": 32,
+          "beta": 0.08299595679532878
+        },
+        "width": 32,
+        "batch_size": 16,
+        "microbatch": 4,
+        "lr": 0.0003,
+        "weight_decay": 1e-05,
+        "gradient_clip": 1.0,
+        "validation_interval": 100,
+        "regime": "pokemon"
+      },
+      {
+        "seed": 29,
+        "updates": 2000,
+        "schedule": {
+          "steps": 32,
+          "beta": 0.08299595679532878
+        },
+        "width": 32,
+        "batch_size": 16,
+        "microbatch": 4,
+        "lr": 0.0003,
+        "weight_decay": 1e-05,
+        "gradient_clip": 1.0,
+        "validation_interval": 100,
+        "regime": "pokemon"
+      },
+      {
+        "seed": 43,
+        "updates": 2000,
+        "schedule": {
+          "steps": 32,
+          "beta": 0.08299595679532878
+        },
+        "width": 32,
+        "batch_size": 16,
+        "microbatch": 4,
+        "lr": 0.0003,
+        "weight_decay": 1e-05,
+        "gradient_clip": 1.0,
+        "validation_interval": 100,
+        "regime": "pokemon"
+      }
+    ],
+    "source": {
+      "paper_core_sha256": "19de4f98e294fd60ddad65d1d1ce55217bf2465d9aa2bff1fcb1c2edbe9c9892",
+      "legacy_source_sha256": "be1bd8b0d5aae0c15de06e19f7a207911136987229710d607ed4a8e5af3e115d"
+    },
+    "split_sha256": "41decc11f8f7f0f717a009ca204215c5c1c07c38008ef28e4adac954cb86fc36",
+    "test_previously_examined": true,
+    "selection": "validation only; float roundtrip MAE within 1e-6 tied, then target forward+reverse MAE",
+    "examples": "seed 17, first 25 test images in manifest order"
+  }
+}

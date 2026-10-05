@@ -1,0 +1,29 @@
+{
+  "frozen_utc": "2026-10-04T22:43:40.268417+00:00",
+  "selection": {
+    "source": {
+      "paper_core_sha256": "19de4f98e294fd60ddad65d1d1ce55217bf2465d9aa2bff1fcb1c2edbe9c9892",
+      "legacy_source_sha256": "be1bd8b0d5aae0c15de06e19f7a207911136987229710d607ed4a8e5af3e115d"
+    },
+    "split_sha256": "41decc11f8f7f0f717a009ca204215c5c1c07c38008ef28e4adac954cb86fc36",
+    "protocol_sha256": "6d6973410b21fc47c5c54d149caecdc017366e04303ff8252f31a26e5b8fd403",
+    "test_previously_examined": true,
+    "candidates": [
+      {
+        "seed": 17,
+        "run": "seed-17",
+        "checkpoint_sha256": "2927dd2386f068797bedcaae3cfe1cf01dc3750467b30cedf02ef499805bda31"
+      },
+      {
+        "seed": 29,
+        "run": "seed-29",
+        "checkpoint_sha256": "5e645d5d2e3379af0a78bbdf191d49f718b51976e532f028fc2a2d3be1a16cf4"
+      },
+      {
+        "seed": 43,
+        "run": "seed-43",
+        "checkpoint_sha256": "aa8d10168664088d98da416f219aebb5043000a9f793c3435303349947dc193a"
+      }
+    ]
+  }
+}

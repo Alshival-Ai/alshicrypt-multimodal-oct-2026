@@ -1,0 +1,21 @@
+{
+  "purpose": "two-coordinate mathematical illustration",
+  "forward": "(u, v) -> (u, 0.5*v + 0.3*u**2)",
+  "inverse": "(u_prime, v_prime) -> (u_prime, 2*(v_prime - 0.3*u_prime**2))",
+  "determinant": 0.5,
+  "grid_range": [
+    -1,
+    1
+  ],
+  "grid_lines_per_axis": 9,
+  "points": [
+    [
+      -0.6,
+      -0.4
+    ],
+    [
+      0.6,
+      0.4
+    ]
+  ]
+}

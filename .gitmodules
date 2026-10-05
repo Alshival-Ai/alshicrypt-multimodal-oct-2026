@@ -1,0 +1,3 @@
+[submodule "deprecated/alshicrypt-multimodal"]
+	path = deprecated/alshicrypt-multimodal
+	url = https://github.com/Alshival-Ai/alshicrypt-multimodal.git

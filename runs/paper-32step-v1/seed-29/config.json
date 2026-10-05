@@ -1,0 +1,16 @@
+{
+  "seed": 29,
+  "updates": 2000,
+  "schedule": {
+    "steps": 32,
+    "beta": 0.08299595679532878
+  },
+  "width": 32,
+  "batch_size": 16,
+  "microbatch": 4,
+  "lr": 0.0003,
+  "weight_decay": 1e-05,
+  "gradient_clip": 1.0,
+  "validation_interval": 100,
+  "regime": "pokemon"
+}

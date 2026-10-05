@@ -1,0 +1,10 @@
+{
+  "observed_utc": "2026-10-04T15:58:30.014827+00:00",
+  "condition": "An unrelated GPU workload was observed during extended byte trials. Wall-clock training and inference timings are descriptive, not isolated benchmarks. Original architecture profiles preceded this workload.",
+  "observed_gpu_memory_mib": 11574,
+  "observed_gpu_utilization_percent": 99,
+  "checkpoint_yield_utc": "2026-10-04T16:22:25.505455+00:00",
+  "checkpoint_yield_reason": "Yielded our GPU process to a concurrent workload after severe contention; will resume from the saved optimizer and random states without changing the update budget. Timing totals count checkpointed work.",
+  "resumed_utc": "2026-10-04T16:32:35Z",
+  "resumed_from_step": 1100
+}

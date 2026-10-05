@@ -1,0 +1,9 @@
+{
+  "torch": "2.10.0+cu128",
+  "cuda": "12.8",
+  "python": "3.12.14",
+  "gpu": "NVIDIA GeForce RTX 5070",
+  "source_sha256": "0ccf59546bdcf9e10b85272007ec0584b8d2aac15405c29e3cc67e29731c8e87",
+  "deterministic_cudnn": true,
+  "tf32": false
+}

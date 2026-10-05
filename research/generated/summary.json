@@ -1,0 +1,101 @@
+{
+  "split": "test",
+  "groups": [
+    {
+      "track": "byte",
+      "family": "guided",
+      "regime": "mixed",
+      "seeds": 3,
+      "mean": {
+        "forward_mae": 0.0182180145377767,
+        "reverse_mae": 0.34207127903744944,
+        "roundtrip_mae": 0.0
+      },
+      "std": {
+        "forward_mae": 0.0007669464592366204,
+        "reverse_mae": 0.021560961241992173,
+        "roundtrip_mae": 0.0
+      }
+    },
+    {
+      "track": "byte",
+      "family": "guided",
+      "regime": "pokemon",
+      "seeds": 3,
+      "mean": {
+        "forward_mae": 0.016608219974089313,
+        "reverse_mae": 0.3280636646919856,
+        "roundtrip_mae": 0.0
+      },
+      "std": {
+        "forward_mae": 0.00035038369034466404,
+        "reverse_mae": 0.053623387497335195,
+        "roundtrip_mae": 0.0
+      }
+    },
+    {
+      "track": "byte",
+      "family": "guided",
+      "regime": "static",
+      "seeds": 3,
+      "mean": {
+        "forward_mae": 0.019151571059379396,
+        "reverse_mae": 0.42570365831517787,
+        "roundtrip_mae": 0.0
+      },
+      "std": {
+        "forward_mae": 0.0020244304909334807,
+        "reverse_mae": 0.07192014575846312,
+        "roundtrip_mae": 0.0
+      }
+    },
+    {
+      "track": "gaussian",
+      "family": "coupling",
+      "regime": "mixed",
+      "seeds": 3,
+      "mean": {
+        "forward_mae": 0.017180287597048812,
+        "reverse_mae": 0.03437455816650506,
+        "roundtrip_mae": 7.684542327085227e-08
+      },
+      "std": {
+        "forward_mae": 0.00011023213229961485,
+        "reverse_mae": 0.0002088936578949476,
+        "roundtrip_mae": 8.018570456606124e-10
+      }
+    },
+    {
+      "track": "gaussian",
+      "family": "coupling",
+      "regime": "pokemon",
+      "seeds": 3,
+      "mean": {
+        "forward_mae": 0.016408327779769732,
+        "reverse_mae": 0.03282827766430965,
+        "roundtrip_mae": 7.583423299221998e-08
+      },
+      "std": {
+        "forward_mae": 0.00012397213223648893,
+        "reverse_mae": 0.00024416070342261605,
+        "roundtrip_mae": 1.0221987919871623e-09
+      }
+    },
+    {
+      "track": "gaussian",
+      "family": "coupling",
+      "regime": "static",
+      "seeds": 3,
+      "mean": {
+        "forward_mae": 0.0415335895598736,
+        "reverse_mae": 0.0803408109503324,
+        "roundtrip_mae": 8.193576415801093e-08
+      },
+      "std": {
+        "forward_mae": 0.006215823238601504,
+        "reverse_mae": 0.013203982410533877,
+        "roundtrip_mae": 1.75719262825455e-09
+      }
+    }
+  ]
+}
