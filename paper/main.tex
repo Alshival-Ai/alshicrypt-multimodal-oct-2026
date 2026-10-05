@@ -50,13 +50,40 @@ The motivating question is whether we can learn to transform data into another
 representation while retaining a reliable way to recover its original values.
 That representation could have a different apparent modality: a message could
 travel as an image, or an image as an audio signal. This separates what the data
-originally means from the form that carries it. Building on our initial
-Encrypter--Decrypter study \cite{original}, we
-separate two questions: how closely does a network match a prescribed stochastic
-transformation, and how reliably can it undo its own output? The theory below
-develops the original tensor-map viewpoint through composition, smooth changes
-of coordinates, and a polynomial specialization. These structures let us
-examine approximation and recovery separately. Section~2
+originally means from the form that carries it.
+
+The overarching idea begins with an invertible map $F:\mathcal X\to\mathcal Y$
+between tensor representations. A machine-learning model $\sigma$ learns the
+forward map, while a model $\tau$ learns the reverse map:
+\begin{equation*}
+ \sigma(x)\approx F(x),\qquad
+ \tau(y)\approx F^{-1}(y),\qquad
+ \tau(\sigma(x))\approx x.
+\end{equation*}
+The first two relations express agreement with the desired transformations;
+the third asks whether the learned models work together to recover the input.
+Two independently learned approximations need not be exact inverses of one
+another. Our initial Encrypter--Decrypter study \cite{original} learned the
+directions independently. Here we constrain the models to share an explicit
+inverse: writing $\sigma=E_\theta$ and $\tau=D_\theta$, training adjusts both
+directions through shared parameters, while the architecture guarantees
+$D_\theta=E_\theta^{-1}$ in exact arithmetic.
+
+For our image-to-image experiment, we choose $F$ from a stochastic process
+that progressively attenuates an image and adds Gaussian noise. Once the
+realized noise field $n$ is fixed, the 32-step endpoint is an invertible map
+$F_n(x)=0.25x+n$, with inverse $F_n^{-1}(y)=(y-n)/0.25$. Supplying the same
+$n$ in both directions gives a controlled target whose forward and inverse
+operations are known, so we can measure target approximation separately from
+recovery of the network's own output.
+
+This learning objective can be posed for other invertible maps, including
+maps between modalities; the stochastic process is our chosen test case.
+Its extension to a particular map requires suitable tensor encodings, model
+capacity, training data, and storage precision. Different target maps may also
+require different reversible architectures.
+The theory below develops this tensor-map viewpoint through composition,
+smooth changes of coordinates, and a polynomial specialization. Section~2
 relates recovery to the longer-term encryption objective, and Section~3 reports
 the experiments. Multimodal operation and cryptographic security remain research
 goals; the present evidence concerns image transformations and numerical recovery.
