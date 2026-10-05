@@ -8,11 +8,14 @@ from .core import DEFAULT_DATA, DEFAULT_RUN, train, test
 
 def main():
     parser = argparse.ArgumentParser(description="32-step paper study: train, evaluate, render, and compile")
-    parser.add_argument("command", choices=("train", "evaluate", "illustrate", "explain", "render", "build", "all"))
+    parser.add_argument("command", choices=("train", "evaluate", "illustrate", "mew", "explain", "render", "build", "all"))
     parser.add_argument("--output", type=Path, default=DEFAULT_RUN)
     parser.add_argument("--data", type=Path, default=DEFAULT_DATA)
     parser.add_argument("--paper", type=Path, default=Path(__file__).resolve().parents[1] / "paper")
     args = parser.parse_args()
+    if args.command == "mew":
+        from .report import mew_map_figure
+        mew_map_figure(args.output, args.data, args.paper)
     if args.command == "illustrate":
         from .report import stochastic_figure, coupling_figure, process_figure, geometry_figure
         stochastic_figure(args.data, args.paper)

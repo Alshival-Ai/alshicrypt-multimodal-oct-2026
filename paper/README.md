@@ -32,6 +32,12 @@ are reused only with matching protocol and source. To regenerate figures and the
 PDF without training, run `paper_study render` and `paper_study build` with
 `.venv/bin/python -m`.
 
+Section 1 opens with Mew passing through the actual learned maps sigma and tau.
+Regenerate this figure with `.venv/bin/python -m paper_study mew`, then rebuild.
+It runs one frozen seed-17 model inference without training; the caption identifies
+Mew as a training image. Payload, noise, decoded arrays, and provenance are saved
+in `generated/mew-learned-map.*`. The complete `render` command also includes it.
+
 Section 1.1 diagrams the teacher and learned paths, their shared noise input,
 and the three error measurements. Section 1.2 illustrates a single Mew trajectory
 at steps 0, 1, 2, 5, 16, and 32.

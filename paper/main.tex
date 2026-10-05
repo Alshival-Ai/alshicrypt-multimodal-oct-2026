@@ -77,6 +77,19 @@ $n$ in both directions gives a controlled target whose forward and inverse
 operations are known, so we can measure target approximation separately from
 recovery of the network's own output.
 
+Figure~\ref{fig:mew-learned-map} shows these two learned directions using Mew:
+$\sigma$ transforms the sprite and $\tau$ recovers its original pixel values.
+\begin{figure}[!htbp]
+\centering\includegraphics[width=\linewidth]{generated/mew-learned-map.pdf}
+\caption{Mew through the learned forward map $\sigma$ and its constructed inverse
+$\tau$, using the frozen seed-17 model trained for 2,000 updates on the 32-step
+target. Both directions receive the same saved noise field. The middle panel
+shows a clipped RGB preview; recovery uses the full floating-point RGBA payload.
+Every original RGBA byte is recovered after rounding. Mew is a training image
+chosen to illustrate the maps; Section~3 reports the held-out results.}
+\label{fig:mew-learned-map}
+\end{figure}
+
 This learning objective can be posed for other invertible maps, including
 maps between modalities; the stochastic process is our chosen test case.
 Its extension to a particular map requires suitable tensor encodings, model

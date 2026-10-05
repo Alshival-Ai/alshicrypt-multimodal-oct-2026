@@ -1,0 +1,21 @@
+{
+  "image": "mew",
+  "dataset_split": "train",
+  "source": "images/mew.png",
+  "source_sha256": "eabeb90dabcd31fa030f98e82ef2b3a332e4ed4add8aa02766a7490862c4a521",
+  "checkpoint_sha256": "2927dd2386f068797bedcaae3cfe1cf01dc3750467b30cedf02ef499805bda31",
+  "model_seed": 17,
+  "update": 2000,
+  "stochastic_steps": 32,
+  "noise_seed": 633472284509762656,
+  "noise_generator": "CPU torch.randn float64, scaled and cast to float32",
+  "device": "cuda",
+  "tensor_layout": "CHW",
+  "channels": "RGBA",
+  "roundtrip_mae": 1.470595947239417e-07,
+  "roundtrip_max_error": 2.0265579223632812e-06,
+  "exact_rgba_bytes": true,
+  "arrays_sha256": "686b6997cc65fc1ca0d80978da966e1ecbe9cca52b442ca4c8a957e070f6872d",
+  "purpose": "opening illustration using a training image; separate from test results",
+  "display": "original and recovered RGBA on checkerboard; transformed clipped RGB preview"
+}

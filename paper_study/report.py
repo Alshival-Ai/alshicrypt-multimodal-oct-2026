@@ -30,6 +30,69 @@ def tex_number(value, digits=3):
     return text
 
 
+@torch.no_grad()
+def mew_map_figure(output, data, paper):
+    """Illustrate sigma and tau with one actual frozen-model round trip."""
+    verify_selection(output)
+    manifest = json.loads((output / "split.json").read_text())
+    row = next(r for r in manifest["images"] if r["id"] == "mew")
+    source = data / row["path"]
+    if digest(source) != row["sha256"]:
+        raise ValueError("Mew source differs from the frozen dataset")
+    with Image.open(source) as im:
+        rgba = np.asarray(im.convert("RGBA")).copy()
+    device = setup(17)
+    checkpoint = output / "seed-17/best.pt"
+    model, schedule, saved = load_model(checkpoint, device)
+    raw = torch.from_numpy(rgba).permute(2, 0, 1).unsqueeze(0)
+    x = (raw.double() / 255).float().to(device)
+    noise_seed = seed_for("paper-mew-learned-map", schedule.steps)
+    noise = schedule.noise(tuple(x.shape), torch.Generator().manual_seed(noise_seed)).float().to(device)
+    encoded = model.encode(x, noise)
+    transmitted, _ = serialize_roundtrip(encoded, "gaussian")
+    decoded = model.decode(transmitted, noise)
+    recovered = (decoded * 255).round().clamp(0, 255).to(torch.uint8)
+    exact = torch.equal(recovered.cpu(), raw)
+    if not exact or not torch.isfinite(decoded).all():
+        raise ArithmeticError("Mew illustration did not recover all original RGBA bytes")
+    preview = (encoded[0, :3].clamp(0, 1) * 255).round().to(torch.uint8).permute(1, 2, 0).cpu().numpy()
+    restored_rgba = recovered[0].permute(1, 2, 0).cpu().numpy()
+    panels = [display_rgba(rgba), Image.fromarray(preview), display_rgba(restored_rgba)]
+    fig = plt.figure(figsize=(9.5, 2.8))
+    for left, panel, title in zip((.035, .39, .745), panels, ("Mew", "Transformed", "Recovered Mew")):
+        ax = fig.add_axes([left, .08, .22, .78])
+        ax.imshow(panel, interpolation="nearest")
+        ax.set_title(title, fontsize=12, color="#233247")
+        ax.axis("off")
+    arrows = fig.add_axes([0, 0, 1, 1], frameon=False)
+    arrows.set(xlim=(0, 1), ylim=(0, 1))
+    arrows.axis("off")
+    for start, end, symbol in ((.27, .375, r"$\sigma$"), (.625, .73, r"$\tau$")):
+        arrows.annotate("", xy=(end, .47), xytext=(start, .47),
+                        arrowprops={"arrowstyle": "->", "lw": 1.6, "color": "#233247"})
+        arrows.text((start + end) / 2, .56, symbol, ha="center", va="center", fontsize=23, color="#233247")
+    destination = paper / "generated"
+    destination.mkdir(parents=True, exist_ok=True)
+    fig.savefig(destination / "mew-learned-map.pdf")
+    fig.savefig(destination / "mew-learned-map.png", dpi=220)
+    plt.close(fig)
+    arrays = destination / "mew-learned-map.npz"
+    np.savez_compressed(arrays, original=raw[0].numpy(), encoded=transmitted[0].cpu().numpy(),
+                        noise=noise[0].cpu().numpy(), decoded=decoded[0].cpu().numpy(),
+                        recovered=recovered[0].cpu().numpy())
+    save_json(destination / "mew-learned-map.json", {
+        "image": "mew", "dataset_split": row["split"], "source": row["path"],
+        "source_sha256": digest(source), "checkpoint_sha256": digest(checkpoint),
+        "model_seed": 17, "update": saved["step"], "stochastic_steps": schedule.steps,
+        "noise_seed": noise_seed, "noise_generator": "CPU torch.randn float64, scaled and cast to float32",
+        "device": str(device), "tensor_layout": "CHW", "channels": "RGBA",
+        "roundtrip_mae": (decoded - x).abs().mean().item(),
+        "roundtrip_max_error": (decoded - x).abs().max().item(), "exact_rgba_bytes": exact,
+        "arrays_sha256": digest(arrays),
+        "purpose": "opening illustration using a training image; separate from test results",
+        "display": "original and recovered RGBA on checkerboard; transformed clipped RGB preview"})
+
+
 def geometry_figure(paper):
     """A two-coordinate polynomial coupling and its explicit inverse."""
     destination = paper / "generated"
@@ -434,6 +497,7 @@ def render(output, data, paper):
     verify_selection(output)
     generated = paper / "generated"
     generated.mkdir(parents=True, exist_ok=True)
+    mew_map_figure(output, data, paper)
     stochastic_figure(data, paper)
     coupling_figure(data, paper)
     process_figure(paper)
