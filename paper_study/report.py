@@ -157,9 +157,9 @@ def process_figure(paper):
             fontsize=14, color=ink, weight="bold")
     for y, title, color, labels in (
         (2.45, "PRESCRIBED TARGET", "#e9f2fc",
-         [r"$T(x,n)=0.25x+n$", r"Target $y$", r"$D_\theta(y,n)$", r"$\widetilde{x}$"]),
+         [r"$T(x,n)=0.25x+n$", r"Target $y$", r"$\tau_\theta(y,n)$", r"$\widetilde{x}$"]),
         (.9, "LEARNED TRANSFORMATION", "#fff0df",
-         [r"$E_\theta(x,n)$", r"Saved output $z$", r"$D_\theta(z,n)$", r"$\widehat{x}$"]),
+         [r"$\sigma_\theta(x,n)$", r"Saved output $z$", r"$\tau_\theta(z,n)$", r"$\widehat{x}$"]),
     ):
         ax.text(.12, y + .62, title, fontsize=11, color=ink, weight="bold")
         ax.text(.35, y, r"$x$", fontsize=18, va="center", color=ink)

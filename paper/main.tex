@@ -63,9 +63,9 @@ the third asks whether the learned models work together to recover the input.
 Two independently learned approximations need not be exact inverses of one
 another. Our initial Encrypter--Decrypter study \cite{original} learned the
 directions independently. Here we constrain the models to share an explicit
-inverse: writing $\sigma=E_\theta$ and $\tau=D_\theta$, training adjusts both
-directions through shared parameters, while the architecture guarantees
-$D_\theta=E_\theta^{-1}$ in exact arithmetic.
+inverse. We write $\sigma_\theta$ and $\tau_\theta$ when showing their shared
+parameters $\theta$ explicitly. Training adjusts both directions, while the
+architecture guarantees $\tau_\theta=\sigma_\theta^{-1}$ in exact arithmetic.
 
 For our image-to-image experiment, we choose $F$ from a stochastic process
 that progressively attenuates an image and adds Gaussian noise. Once the
@@ -73,8 +73,9 @@ realized noise field $n$ is fixed, the 32-step endpoint is an invertible map
 $F_n(x)=0.25x+n$, with inverse $F_n^{-1}(y)=(y-n)/0.25$. Supplying the same
 $n$ in both directions gives a controlled target whose forward and inverse
 operations are known, so we can measure target approximation separately from
-recovery of the network's own output. In this conditioned setting,
-$\sigma(x)=E_\theta(x,n)$ and $\tau(y)=D_\theta(y,n)$ for the same fixed $n$.
+recovery of the network's own output. We show the conditioning input explicitly
+as $\sigma_\theta(x,n)$ and $\tau_\theta(y,n)$; the inverse relation holds for
+each fixed $n$.
 
 Figure~\ref{fig:mew-learned-map} shows these two learned directions using Mew:
 $\sigma$ transforms the sprite and $\tau$ recovers its original pixel values.
@@ -166,7 +167,7 @@ be available to the decoder.}
 For source modality $A$ and carrier modality $B$, this extends the recovery
 objective to
 \begin{equation}
- D_{B\to A}(E_{A\to B}(x,n),n)=x,\qquad x\in\mathcal X_A,
+ \tau_{B\to A}(\sigma_{A\to B}(x,n),n)=x,\qquad x\in\mathcal X_A,
  \label{eq:cross-modal}
 \end{equation}
 where $n$ denotes any conditioning noise shared by the two directions. For
@@ -210,8 +211,8 @@ Write a stochastic family as $T_\omega:\mathcal X\to\mathcal Y$, where $\omega$
 specifies a noise realization. For fixed $\omega$, it is an ordinary deterministic
 map. Our learned encoder and decoder satisfy the design objectives
 \begin{equation}
- E_\theta(x,n)\approx T_\omega(x),\qquad
- D_\theta(E_\theta(x,n),n)\approx x,
+ \sigma_\theta(x,n)\approx T_\omega(x),\qquad
+ \tau_\theta(\sigma_\theta(x,n),n)\approx x,
  \label{eq:objectives}
 \end{equation}
 where $n$ summarizes the realized noise. In our experiment, $T_\omega=F_n$:
@@ -449,8 +450,8 @@ follows from the explicit inverse in Equation~\ref{eq:coupling}; the determinant
 alone would establish only local invertibility.
 
 With four blocks and $s=0.5$, the full encoder satisfies
-$|\det J_{E_{\theta,n}}|=0.5^{4q}=0.25^N$, where
-$E_{\theta,n}(x)=E_\theta(x,n)$. Thus the model contracts local volume while
+$|\det J_{\sigma_{\theta,n}}|=0.5^{4q}=0.25^N$, where
+$\sigma_{\theta,n}(x)=\sigma_\theta(x,n)$. Thus the model contracts local volume while
 preserving an inverse. The determinant's magnitude gives the product of local stretching
 factors; individual directions can still be sensitive to perturbations. This
 explains why numerical error requires measurement even when a smooth inverse
@@ -462,10 +463,10 @@ right to left: $C_2\circ C_1$ applies $C_1$ first, then $C_2$. Undoing that
 sequence requires undoing $C_2$ first, then $C_1$.
 Writing the four blocks as $C_1,\ldots,C_4$, with fixed $n$, gives
 \begin{equation}
- E_{\theta,n}=C_4\circ C_3\circ C_2\circ C_1,\qquad
- D_{\theta,n}=C_1^{-1}\circ C_2^{-1}\circ C_3^{-1}\circ C_4^{-1},
+ \sigma_{\theta,n}=C_4\circ C_3\circ C_2\circ C_1,\qquad
+ \tau_{\theta,n}=C_1^{-1}\circ C_2^{-1}\circ C_3^{-1}\circ C_4^{-1},
 \end{equation}
-and $D_{\theta,n}\circ E_{\theta,n}=E_{\theta,n}\circ D_{\theta,n}
+and $\tau_{\theta,n}\circ \sigma_{\theta,n}=\sigma_{\theta,n}\circ \tau_{\theta,n}
 =\operatorname{id}_V$ in exact arithmetic, where the identity map
 $\operatorname{id}_V$ leaves every input unchanged.
 An endomorphism maps a space into itself while respecting the structure under
@@ -566,15 +567,16 @@ secret key.
 Fix a public message length $L$ and a lossless representation
 $M\in\{0,1\}^L$. The sender and receiver share a uniformly random secret pad
 $K\in\{0,1\}^L$, independent of the message and the adversary's prior information.
-Every transmission uses a fresh pad. Let $F_\theta$ be a public, efficiently
+Every transmission uses a fresh pad. For this keyed construction, let
+$\sigma_\theta$ be a public, efficiently
 computable learned map from $L$-bit strings to serialized image or audio
 carriers. Its parameters are fixed independently of the secret message and pad.
-Assume an efficient inverse $G_\theta$ satisfying
-$G_\theta(F_\theta(c))=c$ for every $c\in\{0,1\}^L$, including the effects of
+Assume an efficient inverse $\tau_\theta$ satisfying
+$\tau_\theta(\sigma_\theta(c))=c$ for every $c\in\{0,1\}^L$, including the effects of
 serialization. The transmitted carrier is
 \begin{equation}
- C=M\oplus K,\qquad Y=F_\theta(C),\qquad
- M=G_\theta(Y)\oplus K,
+ C=M\oplus K,\qquad Y=\sigma_\theta(C),\qquad
+ M=\tau_\theta(Y)\oplus K,
  \label{eq:pad-carrier}
 \end{equation}
 where $\oplus$ is bitwise exclusive OR. The final identity establishes correctness.
@@ -595,10 +597,10 @@ Thus every message of length $L$ induces the same distribution of $C$. Applying
 the fixed carrier map preserves that equality:
 \begin{equation}
  \Pr[Y=y\mid M=m]
- =\sum_{c:\,F_\theta(c)=y}2^{-L},
+ =\sum_{c:\,\sigma_\theta(c)=y}2^{-L},
  \label{eq:carrier-secrecy}
 \end{equation}
-which is independent of $m$. An observer may know and reverse $F_\theta$, but
+which is independent of $m$. An observer may know and reverse $\sigma_\theta$, but
 this yields only the uniformly masked ciphertext $C$.
 
 The equality also covers quantum computation on the observed classical carrier.
@@ -651,8 +653,8 @@ The original models classified each RGB value into one of 256 byte bins
 we use regression against the floating-point targets. The loss is the sum of
 forward and reverse mean squared errors:
 \begin{equation}
- \mathcal L=\mathbb E\left[\|E_\theta(x,n)-T_\omega(x)\|^2_{\mathrm{mean}}
- +\|D_\theta(T_\omega(x),n)-x\|^2_{\mathrm{mean}}\right].
+ \mathcal L=\mathbb E\left[\|\sigma_\theta(x,n)-T_\omega(x)\|^2_{\mathrm{mean}}
+ +\|\tau_\theta(T_\omega(x),n)-x\|^2_{\mathrm{mean}}\right].
 \end{equation}
 Three independent runs use seeds 17, 29, and 43, each with 2,000 optimizer updates,
 effective batch size 16, and microbatch size four. AdamW uses learning rate
@@ -687,13 +689,13 @@ static images and nine structured probes supplement the 81 Pok\'emon test images
 An accurate round trip can coexist with an imperfect match to the teacher.
 Consider a scalar example with $x=0.8$ and saved noise $n=0.1$. The teacher gives
 $T(x,n)=0.25x+n=0.30$. Suppose a learned map instead gives
-$E(x,n)=0.25x+n+0.01=0.31$, with constructed inverse
-$D(z,n)=(z-n-0.01)/0.25$. Then
+$\sigma(x,n)=0.25x+n+0.01=0.31$, with constructed inverse
+$\tau(z,n)=(z-n-0.01)/0.25$. Then
 \begin{equation*}
 \begin{aligned}
  \text{forward error:}&& |0.31-0.30|&=0.01,\\
- \text{reverse error:}&& |D(0.30,0.1)-0.8|=|0.76-0.8|&=0.04,\\
- \text{round-trip error:}&& |D(0.31,0.1)-0.8|&=0.
+ \text{reverse error:}&& |\tau(0.30,0.1)-0.8|=|0.76-0.8|&=0.04,\\
+ \text{round-trip error:}&& |\tau(0.31,0.1)-0.8|&=0.
 \end{aligned}
 \end{equation*}
 The map perfectly reverses its own output even though it differs from the
