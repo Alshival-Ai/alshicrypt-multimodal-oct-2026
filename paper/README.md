@@ -1,5 +1,11 @@
 # Final manuscript
 
+`main.pdf` is the compiled manuscript. `arxiv-source.zip` contains `main.tex`
+at its root, the referenced generated TeX files, and all included PDF figures.
+It excludes model checkpoints, data arrays, and the compiled manuscript.
+After editing or rebuilding, regenerate this source archive from the repository
+root with `.venv/bin/python scripts/package_paper.py`.
+
 Reproducibility repository:
 https://github.com/Alshival-Ai/alshicrypt-multimodal-oct-2026.
 The Pokémon images are from yehongjiang's

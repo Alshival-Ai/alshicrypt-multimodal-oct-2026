@@ -19,7 +19,7 @@
 Protecting personal communication and sensitive medical and scientific data is
 a central motivation for encryption research. A tensor-algebraic perspective
 offers a common mathematical language for studying transformations of images,
-audio, and other structured data. Crucially, the source and transmitted carrier
+audio, and other structured data. The source and transmitted carrier
 need not share a modality: text could be carried as an image, or an image as
 audio, while a corresponding inverse recovers the original data. We explore
 this possibility as a foundation for future multimodal privacy systems,
@@ -32,13 +32,11 @@ network targets a 32-step Gaussian process, transforms all RGBA channels, and
 uses unclipped floating-point payloads to avoid destructive byte conversion.
 Three runs of 2,000 optimizer updates use 647 training, 81 validation, and 81 test
 Pok\'emon sprites; the test set was previously examined during exploratory work.
-Mean test forward- and reverse-target absolute errors are
+Mean test forward- and reverse-target MAEs are
 \ForwardMAE{} and \ReverseMAE{}, respectively; mean learned round-trip error is
-$\RoundtripMAE$. The minimum exact byte-recovery rate across tested runs and
-domains is \ExactRate\% after rounding. Target approximation is learned, whereas
+$\RoundtripMAE$. Exact whole-image RGBA recovery reaches \ExactRate\% after
+rounding in every tested run and domain. Target approximation is learned, whereas
 round-trip recovery relies on constructed inversion and numerical precision.
-Experiments are limited to images.
-These results establish numerical recovery under the evaluated conditions.
 A separate proof sketch shows how a reversible learned carrier can preserve
 one-time-pad secrecy against classical and quantum observation. This provides
 a conditional route toward the future-system conjecture; confidentiality of
@@ -53,8 +51,8 @@ travel as an image, or an image as an audio signal. This separates what the data
 originally means from the form that carries it.
 
 The overarching idea begins with an invertible map $F:\mathcal X\to\mathcal Y$
-between tensor representations. A machine-learning model $\sigma$ learns the
-forward map, while a model $\tau$ learns the reverse map:
+between tensor representations. We train a model $\sigma$ to approximate the
+forward map and a model $\tau$ to approximate its inverse:
 \begin{equation*}
  \sigma(x)\approx F(x),\qquad
  \tau(y)\approx F^{-1}(y),\qquad
@@ -75,7 +73,8 @@ realized noise field $n$ is fixed, the 32-step endpoint is an invertible map
 $F_n(x)=0.25x+n$, with inverse $F_n^{-1}(y)=(y-n)/0.25$. Supplying the same
 $n$ in both directions gives a controlled target whose forward and inverse
 operations are known, so we can measure target approximation separately from
-recovery of the network's own output.
+recovery of the network's own output. In this conditioned setting,
+$\sigma(x)=E_\theta(x,n)$ and $\tau(y)=D_\theta(y,n)$ for the same fixed $n$.
 
 Figure~\ref{fig:mew-learned-map} shows these two learned directions using Mew:
 $\sigma$ transforms the sprite and $\tau$ recovers its original pixel values.
@@ -99,7 +98,7 @@ The theory below develops this tensor-map viewpoint through composition,
 smooth changes of coordinates, and a polynomial specialization. Section~2
 relates recovery to the longer-term encryption objective, and Section~3 reports
 the experiments. Multimodal operation and cryptographic security remain research
-goals; the present evidence concerns image transformations and numerical recovery.
+goals; the experiments concern image transformations and numerical recovery.
 
 \subsection{A modality-independent formulation}
 A digital image is a table of numbers. Our Mew sprite has four values at each
@@ -118,8 +117,7 @@ This common representation permits a shared mathematical formulation, while
 architecture, shape handling, and output constraints remain modality dependent.
 Exact recovery of the source data additionally requires the initial tensor
 encoding to be lossless: a lossy embedding cannot be inverted merely because a
-later tensor transform is invertible. The same trained image network is not
-claimed to operate on arbitrary modalities without adaptation.
+later tensor transform is invertible.
 
 The original paper's tensor-map language \cite{original} becomes more precise
 when we distinguish the stored data from its ambient space. For our images,
@@ -128,9 +126,7 @@ when we distinguish the stored data from its ambient space. For our images,
  \cong\mathbb R^N,\qquad N=4HW=57{,}600.
 \end{equation*}
 The tensor-product notation $\otimes$ records the channel, height, and width
-axes. The symbol $\cong$ expresses an equivalence of vector spaces: we can list
-the same coordinates in one long vector and reshape them back without losing
-information.
+axes.
 An entire sprite is one point in this space, with a coordinate for each channel
 value at each pixel. Byte-valued sprites occupy a finite grid inside $V$;
 differential geometry describes the smooth maps we extend to the surrounding
@@ -163,8 +159,7 @@ illustrated in Figure~\ref{fig:cross-modal}.
 the source information in a different form; the decoder recovers the original
 data, rather than generating a related description or approximation. Any noise,
 format metadata, and future secret-key inputs required by the design must also
-be available to the decoder. These are conceptual examples, not outputs from
-the current image-to-image model.}
+be available to the decoder.}
 \label{fig:cross-modal}
 \end{figure}
 
@@ -189,17 +184,17 @@ image rather than an arbitrary array of pixels. Related neural data-hiding work,
 such as HiDDeN, learns to embed messages in cover images and recover them with
 a decoder \cite{hidden}. Whether a carrier resembles ordinary media, hides the
 source modality, or protects the content from an adversary requires separate
-evaluation. Our present model and experiments establish image-to-image numerical
-recovery; they do not yet implement these cross-modal designs.
+evaluation. We begin with image-to-image recovery as a test of the underlying
+forward and inverse maps.
 
 \FloatBarrier
-Before introducing the maps, consider the two paths in
+To connect this formulation to training, consider the two paths in
 Figure~\ref{fig:process-overview}. A prescribed formula generates the training
 target; we call this formula the \emph{teacher}. A neural network learns to
 approximate that target. Its decoder is constructed to undo the network's own
 output, and we also test how it handles the teacher's output. The same realized
 noise field is supplied wherever $n$ appears, including during decoding.
-It is saved receiver input, not something the decoder must guess.
+The receiver reads this field from the saved record.
 \begin{figure}[!htbp]
 \centering\includegraphics[width=\linewidth]{generated/process-overview.pdf}
 \caption{Two paths through the experiment. The upper path creates the prescribed
@@ -219,7 +214,9 @@ map. Our learned encoder and decoder satisfy the design objectives
  D_\theta(E_\theta(x,n),n)\approx x,
  \label{eq:objectives}
 \end{equation}
-where $n$ summarizes the realized noise. The decoder is the encoder's constructed
+where $n$ summarizes the realized noise. In our experiment, $T_\omega=F_n$:
+the stochastic teacher is the fixed-noise map introduced at the start of this
+section. The decoder is the encoder's constructed
 inverse, with shared parameters. Section~\ref{sec:geometry} develops the
 geometric and algebraic meaning of this inverse.
 Because Gaussian outputs are unbounded, $\mathcal Y$ contains real-valued tensors
@@ -297,12 +294,10 @@ Thus the 32-step teacher is $y=0.25x+n$, with
 $n\sim\mathcal N(0,0.9375I)$. We sample this endpoint directly, avoiding the cost
 of simulating all 32 increments. This matches the endpoint distribution, not an
 individual unsaved noise trajectory. Given its realized $n$, the teacher has the
-analytic inverse $x=(y-n)/0.25$ and needs no machine learning. We deliberately
-choose a process with a known answer so we can measure what the network learns.
-This is a controlled test of target approximation within a reversible
-architecture, not evidence that a neural network is necessary or superior for
-this Gaussian transformation. Diffusion-inspired endpoint learning is distinct from
-sampling a plausible image from a learned distribution \cite{ddpm,sde}.
+analytic inverse $x=(y-n)/0.25$. This known inverse provides a reference for
+the learned maps. Our task is to approximate a specified transformation and
+recover the same input; generative diffusion instead uses learned reverse
+dynamics to sample plausible images \cite{ddpm,sde}.
 
 \FloatBarrier
 \subsection{Constructed inversion and numerical transport}
@@ -322,7 +317,7 @@ network can also discard distinctions between inputs that no decoder can restore
 We therefore introduce a structural constraint: each transformation block comes
 with a known undo operation. Training determines how closely the resulting map
 matches the stochastic target, while the architecture provides its inverse in
-exact arithmetic. This is a change in method, not simply a longer training run.
+exact arithmetic.
 
 The obstacle is easiest to see when a network computes an adjustment from the
 original image and then changes every channel. To subtract that adjustment
@@ -367,8 +362,8 @@ in Section~1.2; the two counts refer to different operations.
 \caption{Constructed inversion using Mew's channel groups. (A) Original channel
 values are displayed in grayscale, including alpha; both groups cover every
 pixel. (B) One block holds $u$ unchanged while adjusting $v$. The decoder uses
-the same conditioner and noise to reproduce the adjustment. The scalar values
-are an illustrative arithmetic example, not measured network predictions.
+the same conditioner and noise to reproduce the adjustment. The scalar example
+shows how subtraction and division undo the update.
 (C) Alternating the groups changes all four channels; reversing the block order
 undoes the composition, up to floating-point error. A group is held unchanged
 only within its current block.}
@@ -385,8 +380,7 @@ float32 still has finite precision. PNGs displayed as encrypted images are
 clipped RGB previews only, not decodable substitutes for the stored RGBA payload.
 For example, clipping sends both $1.2$ and $1.8$ to $1.0$. Once only $1.0$ is
 stored, the decoder cannot tell which value preceded it, even with a perfectly
-invertible network. This loss comes from storage, not from a failure to train
-the decoder long enough.
+invertible network. Further training cannot restore that discarded distinction.
 
 Finite arithmetic introduces reconstruction error. Normalizing byte values
 divides them by 255, so adjacent levels are $1/255$ apart. For original byte-valued
@@ -552,7 +546,8 @@ key-conditioned family of learned, information-preserving tensor transformations
 can support efficient authorized recovery and confidentiality against
 polynomial-time classical and quantum adversaries.
 \end{conjecture}
-For a computationally secure implementation, a proposed construction must specify a security parameter,
+To turn this conjecture into a computational security claim, a construction
+must specify a security parameter,
 secret-key distribution, public randomness or nonce rules, ciphertext format,
 and an indistinguishability experiment with precisely defined oracle access.
 At minimum, one should consider quantum computation with classical
@@ -675,8 +670,9 @@ yehongjiang \cite{pokemon-data} and retain their RGBA channels. The inherited
 split contains 647 training, 81 validation, and 81 test images, grouping decoded
 duplicates, name variants, and available evolution links. The supplied evolution
 metadata are incomplete. Training samples sprites with replacement and fresh
-noise. Validation every 100 updates selects checkpoints by round-trip MAE above
-a $10^{-6}$ tolerance, followed by summed forward/reverse target MAE. All three
+noise. Validation every 100 updates ranks checkpoints first by the excess of
+round-trip MAE over $10^{-6}$, treating errors at or below that tolerance as tied,
+and then by summed forward/reverse target MAE. All three
 checkpoints are frozen and hashed before this campaign's test evaluation.
 The same test set was previously examined during exploratory work; consequently
 this is a follow-up evaluation, not a previously untouched confirmatory holdout.
@@ -705,8 +701,8 @@ teacher's transformation.
 
 Forward error measures agreement with the prescribed teacher; reverse error
 decodes teacher outputs. Round-trip error instead decodes the network's own
-serialized output. Their separation prevents built-in invertibility from being
-misreported as learned target fidelity. MAE is normalized to original pixel units
+serialized output. Reporting these errors separately shows both target fidelity
+and recovery. MAE is normalized to original pixel units
 on $[0,1]$, including all RGBA entries. Foreground RGB errors use the original
 nonzero-alpha mask and are included in the accompanying results.
 
@@ -721,8 +717,8 @@ teaches its additive functions to match the prescribed process.
 \centering\small\input{generated/training-control-table.tex}
 \caption{Before and after training on the 81 validation Pok\'emon images.
 Entries are means across seeds 17, 29, and 43. ``After'' uses each seed's
-validation-selected checkpoint. Exact RGBA images counts whole images with
-every channel byte recovered after rounding; all three seeds attain 100\%
+validation-selected checkpoint. ``Exact RGBA images'' is the percentage of whole
+images with every channel byte recovered after rounding; all three seeds attain 100\%
 both before and after training.}
 \label{tab:training-control}
 \end{table}
@@ -736,7 +732,7 @@ validation target error. Each curve follows one training seed.}
 \begin{table}[!htbp]
 \centering\small\setlength{\tabcolsep}{4pt}\input{generated/test-table.tex}
 \caption{Results on the 81 test Pok\'emon images, shown separately for each
-training seed. MAEs use normalized RGBA values. Exact RGBA images is the
+training seed. MAEs use normalized RGBA values. ``Exact RGBA images'' is the
 percentage of entire images recovered byte-for-byte after rounding.}
 \label{tab:test-results}
 \end{table}
@@ -752,8 +748,8 @@ training variation and is not a population confidence interval.
 Moving to 32 steps produced a tradeoff: measured RGB correlation with the input
 was lower and forward-target agreement improved, while reverse-target agreement
 worsened. Exact byte recovery of the models' own outputs remained 100\% in the
-tested domains. These measurements describe different aspects of the method,
-so no single one establishes that every aspect improved.
+tested domains. The stronger attenuation therefore trades lower measured
+correlation for greater difficulty decoding the teacher's outputs.
 
 The 16-step exploratory study followed the original paper and already used
 coupling and float transport. It used the same model capacity, training split,
@@ -763,6 +759,7 @@ trained with coefficient $0.25$. The following table reports mean and sample
 standard deviation across three seeds on the same test images. The comparison
 changes the teacher, so the metrics describe two task difficulties rather than a
 competition against an identical target.
+
 \begin{table}[!htbp]
 \centering\small\input{generated/comparison-table.tex}
 \caption{Target and round-trip MAEs on the same 81 test Pok\'emon images.
@@ -771,6 +768,7 @@ Signal is the teacher's coefficient on the original input. The two schedules
 define different targets.}
 \label{tab:step-comparison}
 \end{table}
+
 \input{generated/comparison-findings.tex}
 
 \begin{figure}[ht]
@@ -782,12 +780,13 @@ rule out nonlinear identification or reconstruction attacks.}
 \end{figure}
 Mean preview correlation is \OldCorrelation{} for 16 steps and \NewCorrelation{}
 for 32 steps. Noise fields use matching underlying standard-normal streams for
-the comparison. Both positive and negative findings are retained; no claim that
-all recognizable structure is eliminated follows from these summaries.
+the comparison. Residual recognizable structure remains a question for
+identification and reconstruction tests beyond this correlation summary.
 
+\FloatBarrier
 \subsection{Actual image examples and resource costs}
 Figure~\ref{fig:examples} illustrates one predetermined test image; the appendix
-contains all first 25 in manifest order, without selection for appearance or
+contains the first 25 in manifest order, without selection for appearance or
 reconstruction quality. Checkerboards display original and reconstructed
 transparency. The encrypted preview shows opaque clipped RGB; the saved float
 payload also contains transformed alpha.
@@ -795,22 +794,25 @@ payload also contains transformed alpha.
 \centering\includegraphics[width=0.70\linewidth]{generated/example-single.pdf}
 \caption[First held-out test image]{\protect\input{generated/example-single-caption.tex}
 The center panel is a clipped preview; recovery uses the full float payload
-and saved noise. This example illustrates numerical recovery, not confidentiality.}
+and saved noise.}
 \label{fig:examples}
 \end{figure}
 
 On the RTX 5070 with 12 GB VRAM, training took
 \MinMinutes--\MaxMinutes{} minutes per run, excluding validation and checkpoint
-overhead. Peak PyTorch tensor allocation was \MinVRAM--\MaxVRAM{} MiB; driver
+overhead. Peak PyTorch tensor allocation was approximately \MaxVRAM{} MiB per run; driver
 memory and other processes are excluded. Timing describes this shared workstation.
 The float32 RGBA payload and noise field each occupy 230,400 raw bytes, excluding
 container overhead and shared model weights. Replacing the noise field with a
 seed would require generator and stream-position metadata and separate security
 analysis.
 
-This small experiment demonstrates learned target approximation and reliable
-numerical round trips under the tested conditions. It establishes neither an
-advantage over the analytic inverse nor cross-device bitwise compatibility.
+The central finding is that target approximation and reliable recovery can be
+designed and evaluated separately: training improves agreement with the
+stochastic teacher, while coupling and float transport preserve the way back
+to the source pixels. The measured gains address the original pipeline's
+recovery limitations; they establish neither an advantage over the analytic
+inverse nor cross-device bitwise compatibility.
 The text-to-image and image-to-audio paths in Figure~\ref{fig:cross-modal} are
 concrete next experiments: their first recovery criterion would be exact source
 bytes after serialization of the carrier. Carrier realism and resilience to
