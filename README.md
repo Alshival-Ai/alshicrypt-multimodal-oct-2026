@@ -18,11 +18,14 @@ their file hashes; retain these files for replication of the reported results.
 Clone the repository with its original-project submodule:
 
 ```bash
-git clone --recurse-submodules https://github.com/Alshival-Ai/alshicrypt-multimodal-oct-2026.git
+git clone https://github.com/Alshival-Ai/alshicrypt-multimodal-oct-2026.git
 cd alshicrypt-multimodal-oct-2026
+git submodule update --init deprecated/alshicrypt-multimodal
 ```
 
-For an existing clone, run `git submodule update --init --recursive`.
+For an existing clone, run the same `git submodule update --init` command above.
+Only the original-project submodule is needed. Its historical wiki entry has
+no submodule URL, so recursive submodule checkout fails; omit `--recursive`.
 
 ## Final 32-step paper
 

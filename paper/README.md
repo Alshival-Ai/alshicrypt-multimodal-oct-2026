@@ -4,8 +4,10 @@ Reproducibility repository:
 https://github.com/Alshival-Ai/alshicrypt-multimodal-oct-2026.
 The Pokémon images are from yehongjiang's
 [Pokemon sprite images](https://www.kaggle.com/datasets/yehongjiang/pokemon-sprites-images)
-dataset on Kaggle. Clone with `--recurse-submodules` to obtain the pinned
-original project and exact dataset. The repository includes both frozen
+dataset on Kaggle. After cloning, run
+`git submodule update --init deprecated/alshicrypt-multimodal` to obtain the pinned
+original project and exact dataset. Omit `--recursive`: the original project's
+unused historical wiki entry has no submodule URL. The repository includes both frozen
 campaigns under `runs/`, with their checkpoints, results, and selection records.
 
 `main.tex` has three main sections: tensor theory, the future-system post-quantum
