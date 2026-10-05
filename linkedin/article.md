@@ -34,7 +34,13 @@ The architecture supplies that return path before training. Training teaches the
 
 Across three runs of 2,000 training updates on a consumer GPU, every evaluated image recovered its original color and transparency bytes after rounding. Tests included 81 Pokémon images excluded from training, random static, and simple patterns. We separated training, validation, and testing, although we had examined the test group in earlier exploratory work.
 
-Reliable recovery is one ingredient in encryption. Confidentiality also requires preventing someone without the secret from learning the content. Our prototype does not yet provide that protection. The paper discusses a route toward quantum-resistant systems by combining reversible learned representations with an established secrecy mechanism; a noisy appearance alone cannot establish security.
+Reliable recovery is one ingredient in encryption. Confidentiality also requires preventing someone without the secret from learning the content. Our prototype does not yet provide that protection. The longer-term aim is expressed in the paper's conjecture:
+
+**Our conjecture — a research hypothesis, currently unproven:**
+
+> Under suitable computational hardness assumptions, a future publicly specified key-conditioned family of learned, information-preserving tensor transformations can support efficient authorized recovery and confidentiality against polynomial-time classical and quantum adversaries.
+
+The ambition is a system that lets a receiver with the secret recover the data efficiently, while protecting its contents even when an attacker knows how the model works and can use a quantum computer. The paper's separate proof sketch explores one conditional route: protect the message with a one-time pad, then carry those protected bits through a reversible learned representation. The pad supplies the secrecy; the learned transformation changes the form that carries it.
 
 Text-to-image and image-to-audio are future experiments. Our next step is to test whether those changes of form can preserve the source information just as faithfully.
 
